@@ -1,0 +1,31 @@
+{
+  "name": "CohesioBudget",
+  "version": "1.0.0",
+  "description": "cohesioBudget",
+  "main": "index.js",
+  "scripts": {
+    "startBack": "npm run start --prefix ./back",
+    "startFront": "npm run dev --prefix ./front",
+    "start": "concurrently -c \"red,blue\" \"npm:startBack\" \"npm:startFront\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:local": "docker compose up --build",
+    "docker:back:dev": "docker-compose -f docker-compose.back.yml up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WildCodeSchool/2311-wns-jaune-wild-mail.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WildCodeSchool/2311-wns-jaune-wild-mail/issues"
+  },
+  "homepage": "https://github.com/WildCodeSchool/2311-wns-jaune-wild-mail#readme",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "wild-mail-builder": "file:"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7"
+  }
+}
