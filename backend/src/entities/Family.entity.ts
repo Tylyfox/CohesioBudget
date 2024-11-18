@@ -4,6 +4,8 @@ import User from "./User.entity";
 import { IsDate, IsNotEmpty } from "class-validator";
 import Income from "./Income.entity";
 import Category  from "./Category.entity";
+import Expense from "./Expense.entity";
+import Goal from "./Goal.entity";
 
 @ObjectType()
 @Entity()
@@ -30,7 +32,15 @@ export default class Family {
     @OneToMany(() => Income, income => income.family)
     incomes: Income[];
 
+    @Field(() => [Expense])
+    @OneToMany(() => Expense, expense => expense.family)
+    expenses: Expense[];
+
     @Field(() => [Category])
     @OneToMany(() => Category, category => category.family)
     categories: Category[];
+
+    @Field(() => [Goal])
+    @OneToMany(() => Goal, goal => goal.family)
+    goals: Goal[];
 }

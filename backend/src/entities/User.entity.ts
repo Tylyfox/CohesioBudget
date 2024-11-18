@@ -4,6 +4,7 @@ import { Field, ObjectType } from "type-graphql";
 import Family from "./Family.entity";
 import { IsEmail, IsNotEmpty, Length, Matches } from "class-validator";
 import Income from "./Income.entity";
+import Expense from "./Expense.entity";
 
 @ObjectType()
 @Entity()
@@ -57,9 +58,13 @@ export default class User {
     @ManyToOne(() => Family, family => family.users)
     family: Family;
 
-    @Field(() => [Family])
+    @Field(() => [Income])
     @OneToMany(() => Income, income => income.user)
     incomes: Income[];
+
+    @Field(() => [Expense])
+    @OneToMany(() => Expense, expense => expense.user)
+    expenses: Expense[];
 }
 
 
