@@ -6,6 +6,7 @@ import Income from "./Income.entity";
 import Category  from "./Category.entity";
 import Expense from "./Expense.entity";
 import Goal from "./Goal.entity";
+import PlannedPurchase from "./PlannedPurchase.entity";
 
 @ObjectType()
 @Entity()
@@ -43,4 +44,9 @@ export default class Family {
     @Field(() => [Goal])
     @OneToMany(() => Goal, goal => goal.family)
     goals: Goal[];
+
+    @Field(() => [PlannedPurchase])
+    @OneToMany(() => PlannedPurchase, plannedPurchase => plannedPurchase.family)
+    purchases: PlannedPurchase[];
+
 }
