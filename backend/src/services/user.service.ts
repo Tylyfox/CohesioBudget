@@ -11,4 +11,12 @@ export default class UserService {
     async list(): Promise<User[]> {
         return await this.db.find();
     }
+
+    async findByEmail(email: string): Promise<User | null> {
+        const user = await this.db.findOneBy({ email });
+        if (!user) {
+            return null;
+        }
+        return user;
+    }
 }

@@ -3,6 +3,9 @@ import User from "../entities/User.entity";
 import Family from "../entities/Family.entity";
 import Category from "../entities/Category.entity";
 import Income from "../entities/Income.entity";
+import Expense from "../entities/Expense.entity";
+import Goal from "../entities/Goal.entity";
+import PlannedPurchase from "../entities/PlannedPurchase.entity";
 
 export default new DataSource({
   type: "postgres",
@@ -15,7 +18,10 @@ export default new DataSource({
     User,
     Family,
     Category,
-    Income  
+    Income,
+    Expense,
+    Goal,
+      PlannedPurchase,
   ], //Importe TOUTES les entities
   synchronize: true, //à ne pas utiliser en production
   logging: ["error", "query"], //à ne pas utiliser en production
